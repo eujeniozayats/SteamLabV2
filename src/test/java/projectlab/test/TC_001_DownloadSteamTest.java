@@ -1,9 +1,6 @@
 package projectlab.test;
 
 import framework.BaseTest;
-import framework.PropReader;
-import framework.browser.BrowserManager;
-import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import projectlab.pages.CategoryPage;
@@ -13,7 +10,6 @@ import projectlab.pages.MainPage;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class TC_001_DownloadSteamTest extends BaseTest {
 
