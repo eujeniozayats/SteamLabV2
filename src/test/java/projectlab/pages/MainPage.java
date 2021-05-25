@@ -12,8 +12,16 @@ public class MainPage extends BaseSteamPage {
         super(By.xpath("//body[@class='v6 infinite_scrolling responsive_page']"), "MainPage");
         changeLanguage();
     }
+    private Button btnGenres(String genre) {
+        return new Button(By.xpath(String.format("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]", genre)), "btnGenre");
+    }
 
-    private static Button changeLang() {
+    private Button menuItems(String menuItem) {
+        return new Button(By.xpath(String.format("//a[@class='pulldown_desktop' and text()='%s']", menuItem)), "btnMenuItem");
+
+    }
+
+    private Button changeLang() {
         return new Button(By.id("language_pulldown"), "btnChangeLang");
     }
 
@@ -28,15 +36,6 @@ public class MainPage extends BaseSteamPage {
             btnTargetLanguage().clickAndWait();
             info(String.format(getLocale("loc.lang.choose"), getLocale("loc.langname")));
         }
-
-    }
-
-    private Button btnGenres(String genre) {
-        return new Button(By.xpath(String.format("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]", genre)), "btnGenre");
-    }
-
-    private Button menuItems(String menuItem) {
-        return new Button(By.xpath(String.format("//a[@class='pulldown_desktop' and text()='%s']", menuItem)), "btnMenuItem");
 
     }
 

@@ -11,7 +11,7 @@ public class BaseSteamPage extends BasePage {
         super(locator, pageTitle);
     }
 
-    private static Button installSteam() {
+    private Button installSteam() {
         return new Button(By.xpath("//a[@class='header_installsteam_btn_content']"), "btnInstallSteamHeader");
     }
 

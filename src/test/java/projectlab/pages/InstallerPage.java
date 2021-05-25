@@ -15,7 +15,7 @@ public class InstallerPage extends BaseSteamPage {
         super(By.xpath("//body[@class='v6 promoannounce responsive_page']"), "Installer Page");
     }
 
-    protected static Button installSteam() {
+    private Button installSteam() {
         return new Button(By.xpath("//div[@id='about_greeting']/div[@class='about_install_wrapper']/div[@class='about_install win ']/a"), "btnInstallSteam");
     }
 
