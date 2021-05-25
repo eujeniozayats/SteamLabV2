@@ -19,7 +19,7 @@ public class YearCheckPage extends BaseSteamPage {
     }
 
     private Button setYear() {
-        return new Button(By.id("ageYear"), "btnSetYear");
+        return new Button(By.id("ageYear"), "Set Year Button");
     }
 
     private Button clickViewPage() {

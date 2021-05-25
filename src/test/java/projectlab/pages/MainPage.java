@@ -13,21 +13,21 @@ public class MainPage extends BaseSteamPage {
         changeLanguage();
     }
     private Button btnGenres(String genre) {
-        return new Button(By.xpath(String.format("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]", genre)), "btnGenre");
+        return new Button(By.xpath(String.format("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]", genre)), "Genre Selection Button");
     }
 
     private Button menuItems(String menuItem) {
-        return new Button(By.xpath(String.format("//a[@class='pulldown_desktop' and text()='%s']", menuItem)), "btnMenuItem");
+        return new Button(By.xpath(String.format("//a[@class='pulldown_desktop' and text()='%s']", menuItem)), "Menu Item Button");
 
     }
 
     private Button changeLang() {
-        return new Button(By.id("language_pulldown"), "btnChangeLang");
+        return new Button(By.id("language_pulldown"), "Change Language Button");
     }
 
 
     private Button btnTargetLanguage() {
-        return new Button(By.xpath(String.format("//a[contains(@class,'popup_menu_item tight') and contains(text(),'%s')]", targetLanguage)), "Language");
+        return new Button(By.xpath(String.format("//a[contains(@class,'popup_menu_item tight') and contains(text(),'%s')]", targetLanguage)), "Target Language Button");
     }
 
     public void changeLanguage() {

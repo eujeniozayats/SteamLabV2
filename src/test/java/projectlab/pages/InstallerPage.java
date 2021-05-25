@@ -16,7 +16,7 @@ public class InstallerPage extends BaseSteamPage {
     }
 
     private Button installSteam() {
-        return new Button(By.xpath("//div[@id='about_greeting']/div[@class='about_install_wrapper']/div[@class='about_install win ']/a"), "btnInstallSteam");
+        return new Button(By.xpath("//div[@id='about_greeting']/div[@class='about_install_wrapper']/div[@class='about_install win ']/a"), "Install Steam Button");
     }
 
     public void downloadSteamAndVerify() throws IOException {
