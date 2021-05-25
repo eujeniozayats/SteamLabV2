@@ -13,16 +13,15 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseEntity {
 
     static final String propFile = "selenium.properties";
-    static final String resourceBundle = "localization/loc";
+    public static String resourceBundlePath = "localization/loc";
     public static PropReader propReader;
     protected static BrowserManager browser = BrowserManager.getInstance();
-    protected static ResourceBundle rb;
+    protected static ResourceBundle resourceBundle;
     protected static Logger logger = Logger.getInstance();
     protected ITestContext context;
-    protected Locale nglocale;
 
     protected static String getLocale(final String key) {
-        return rb.getString(key);
+        return resourceBundle.getString(key);
     }
 
     protected abstract String formatLogMsg(String message);
@@ -31,13 +30,11 @@ public abstract class BaseEntity {
         logger.info(formatLogMsg(message));
     }
 
-    @Parameters({"siteLanguage"})
+
     @BeforeClass
-    public void before(ITestContext context, String siteLanguage) {
+    public void before(ITestContext context) {
         propReader = new PropReader(propFile);
         this.context = context;
-        nglocale = new Locale(siteLanguage);
-        rb = ResourceBundle.getBundle(resourceBundle, nglocale);
         browser = BrowserManager.getInstance();
         browser.getDriver().manage().window().maximize();
         browser.getDriver().manage().deleteAllCookies();

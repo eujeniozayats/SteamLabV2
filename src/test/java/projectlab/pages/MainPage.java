@@ -4,41 +4,39 @@ import framework.elements.Button;
 import org.openqa.selenium.By;
 
 public class MainPage extends BaseSteamPage {
-    private static final String pagelocator = "//body[@class='v6 infinite_scrolling responsive_page']";
-    private static final String genresLocator = "//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]";
-    private static final String pullDownMenuLocator = "//a[@class='pulldown_desktop' and text()='%s']";
-    private static final String langLocator = "language_pulldown";
-    private static final String engLang = getLocale("loc.langname");
+
+    private static final String targetLanguage = getLocale("loc.langname");
     String btnLang = changeLang().getText();
 
     public MainPage() {
-        super(By.xpath(pagelocator), "MainPage");
+        super(By.xpath("//body[@class='v6 infinite_scrolling responsive_page']"), "MainPage");
         changeLanguage();
     }
 
     private static Button changeLang() {
-        return new Button(By.id(langLocator), "btnChangeLang");
+        return new Button(By.id("language_pulldown"), "btnChangeLang");
     }
 
-    private Button setEng() {
-        return new Button(By.linkText(engLang), "btnTargetLang");
+
+    private Button btnTargetLanguage(){
+        return new Button(By.xpath(String.format("//a[contains(@class,'popup_menu_item tight') and contains(text(),'%s')]", targetLanguage)), "Language");
     }
 
     public void changeLanguage() {
         if (!btnLang.equals(getLocale("loc.language"))) {
             changeLang().clickAndWait();
-            setEng().clickAndWait();
+            btnTargetLanguage().clickAndWait();
             info(String.format(getLocale("loc.lang.choose"), getLocale("loc.langname")));
         }
 
     }
 
     private Button btnGenres(String genre) {
-        return new Button(By.xpath(String.format(genresLocator, genre)), "btnGenre");
+        return new Button(By.xpath(String.format("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']/a[contains(text(), '%s')]", genre)), "btnGenre");
     }
 
     private Button menuItems(String menuItem) {
-        return new Button(By.xpath(String.format(pullDownMenuLocator, menuItem)), "btnMenuItem");
+        return new Button(By.xpath(String.format("//a[@class='pulldown_desktop' and text()='%s']", menuItem)), "btnMenuItem");
 
     }
 

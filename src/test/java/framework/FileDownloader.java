@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class FileDownloader extends BaseEntity {
 
     Path downloadsDirectory;
+    private static  int pollingInterval = 200;
 
     public void verifyFileDownloaded() {
         info(BaseEntity.getLocale("loc.check.download"));
@@ -36,7 +37,7 @@ public class FileDownloader extends BaseEntity {
     public void waitForFileDownload(int totalTimeoutInMillis, String expectedFileName) {
         FluentWait<WebDriver> wait = new FluentWait(BaseEntity.browser.getDriver())
                 .withTimeout(totalTimeoutInMillis, TimeUnit.MILLISECONDS)
-                .pollingEvery(200, TimeUnit.MILLISECONDS);
+                .pollingEvery(pollingInterval, TimeUnit.MILLISECONDS);
         File fileToCheck = getDownloadsDirectory()
                 .resolve(expectedFileName)
                 .toFile();
