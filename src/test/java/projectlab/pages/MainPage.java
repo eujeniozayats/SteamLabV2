@@ -18,7 +18,7 @@ public class MainPage extends BaseSteamPage {
     }
 
 
-    private Button btnTargetLanguage(){
+    private Button btnTargetLanguage() {
         return new Button(By.xpath(String.format("//a[contains(@class,'popup_menu_item tight') and contains(text(),'%s')]", targetLanguage)), "Language");
     }
 

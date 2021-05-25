@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 
 public class FileDownloader extends BaseEntity {
 
+    private static int pollingInterval = 200;
     Path downloadsDirectory;
-    private static  int pollingInterval = 200;
 
     public void verifyFileDownloaded() {
         info(BaseEntity.getLocale("loc.check.download"));

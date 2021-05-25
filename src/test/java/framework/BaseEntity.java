@@ -4,9 +4,7 @@ import framework.browser.BrowserManager;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
