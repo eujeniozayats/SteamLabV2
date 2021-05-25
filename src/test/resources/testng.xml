@@ -3,7 +3,7 @@
 <suite name="Suite">
     <test verbose="2" preserve-order="true"
           name="SteamDownloadTest">
-        <parameter name="siteLanguage" value="${test.env}"></parameter>
+        <parameter name="siteLanguage" value="ru"></parameter>
         <classes>
             <class name="projectlab.test.TC_001_DownloadSteamTest"/>
         </classes>
