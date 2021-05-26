@@ -15,12 +15,11 @@ public class InstallerPage extends BaseSteamPage {
         super(By.xpath("//body[@class='v6 promoannounce responsive_page']"), "Installer Page");
     }
 
-    private Button installSteam() {
-        return new Button(By.xpath("//div[@id='about_greeting']/div[@class='about_install_wrapper']/div[@class='about_install win ']/a"), "Install Steam Button");
-    }
+    private Button installSteam = new Button(By.xpath("//div[@id='about_greeting']/div[@class='about_install_wrapper']/div[@class='about_install win ']/a"), "Install Steam Button");
+
 
     public void downloadSteamAndVerify() throws IOException {
-        installSteam().clickAndWait();
+        installSteam.clickAndWait();
         info(getLocale("loc.download"));
         FileDownloader fd = new FileDownloader();
         fd.waitForFileDownload(downloadTimeout, expectedFileName);

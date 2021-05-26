@@ -10,15 +10,13 @@ public class GamePage extends BaseSteamPage {
         super(By.xpath("//body[@class='v6 app game_bg responsive_page']"), "GamePage");
         YearCheckPage yearCheckPage = new YearCheckPage();
         yearCheckPage.passAge();
-        info(getLocale("loc.gamename") + gameName().getText());
+        info(getLocale("loc.gamename") + gameName.getText());
     }
 
-    private Label gameName() {
-        return new Label(By.xpath("//div[@class='apphub_AppName']"), "Name");
-    }
+    private Label gameName = new Label(By.xpath("//div[@class='apphub_AppName']"), "Name");
 
     public void validateIsGamePresent() {
-        gameName().isPresent();
+        gameName.isPresent();
     }
 }
 

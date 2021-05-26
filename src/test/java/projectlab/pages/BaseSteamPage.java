@@ -11,11 +11,10 @@ public class BaseSteamPage extends BasePage {
         super(locator, pageTitle);
     }
 
-    private Button installSteam() {
-        return new Button(By.xpath("//a[@class='header_installsteam_btn_content']"), "Header Install Steam Button");
-    }
+    private Button installSteam = new Button(By.xpath("//a[@class='header_installsteam_btn_content']"), "Header Install Steam Button");
+
 
     public void clickInstallSteam() {
-        installSteam().clickAndWait();
+        installSteam.clickAndWait();
     }
 }
