@@ -13,7 +13,7 @@ public class GamePage extends BaseSteamPage {
         info(getLocale("loc.gamename") + gameName.getText());
     }
 
-    private Label gameName = new Label(By.xpath("//div[@class='apphub_AppName']"), "Name");
+    private static final Label gameName = new Label(By.xpath("//div[@class='apphub_AppName']"), "Name");
 
     public void validateIsGamePresent() {
         gameName.isPresent();
